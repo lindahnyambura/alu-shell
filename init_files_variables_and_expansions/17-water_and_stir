@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "obase=bestchol; $(($(echo ${WATER//[!0-9]} | sed 's/^0*//') + $(echo ${STIR//[!0-9]} | sed 's/^0*//')))" | bc
+echo "$(( ($(tr a-z A-Z <<< $WATER | tr 'A-Z' '1-9A-Q') + $(tr a-z A-Z <<< $STIR | tr 'A-Z' '1-9A-Q')) % 26 ))" | tr '0-9A-Q' 'A-Z'
