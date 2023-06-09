@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$(( ($(tr a-z A-Z <<< $WATER | tr 'A-Z' '1-9A-Q') + $(tr a-z A-Z <<< $STIR | tr 'A-Z' '1-9A-Q')) % 26 ))" | tr '0-9A-Q' 'A-Z'
+echo $(printf %o $(($((5#$(echo $WATER | tr 'water' '01234'))) + $((5#$(echo $STIR | tr 'stir.' '01234'))))) | tr '01234567' 'bestchol')
